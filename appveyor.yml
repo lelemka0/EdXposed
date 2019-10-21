@@ -1,4 +1,4 @@
-version: '0.4.6.0_beta({build})'
+version: '({build})'
 
 environment:
   ANDROID_HOME: C:\android-sdk-windows
@@ -16,27 +16,11 @@ install:
   - set PATH=%PATH%;C:\android-sdk-windows\ndk-bundle;C:\android-sdk-windows\build-tools\28.0.3
 
 build_script:
-  - gradlew.bat :edxp-core:zipYahfaRelease
-  - gradlew.bat :edxp-core:zipSandhookRelease
+  - gradlew.bat :edxp-core:assembleRelease
 
 artifacts:
-  - path: 'edxp-core\release\**\*.zip'
+  - path: 'release\**\*.zip'
 
 pull_requests:
   do_not_increment_build_number: true
-
-only_commits:
-  files:
-    - dalvikdx/
-    - dexmaker/
-    - edxp-common/
-    - edxp-core/
-    - edxp-sandhook/
-    - edxp-whale/
-    - edxp-yahfa/
-    - hiddenapi-stubs/
-    - xposed-bridge/
-    - build.gradle
-    - settings.gradle
-    - gradle.properties
-    - appveyor.yml
+  
